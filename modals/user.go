@@ -5,6 +5,13 @@ import "gorm.io/gorm"
 //class
 type User struct{
 	gorm.Model
+	CommonModel
+	UserDto
+}
+
+//data transfer object
+//aako data userdto ma convert hannu parxa
+type UserDto struct {
 	FirstName string `json:"first-name"`
 	MiddleName string `json:"middle-name"`
 	LastName string `json:"last-name"`
@@ -12,29 +19,31 @@ type User struct{
 	Email string `json:"email"`
 	Password string `json:"password"`
 	Address string `json:"address"`
-	CommonModel
 }
+
 //cm CommonModel le k garxa?
 //[]User is return type
 func GetAllUsers()[]User{
-	return []User{
-		User{
-			FirstName: "Mandib",
-			MiddleName: "",
-			LastName: "Chaulagain",
-			Age: 22,
-			Email:"mandibchaulagain8@gmail.com",
-			Password: "mandib123",
-			Address: "Kathmandu",
+	user1:= User{
+		Model: gorm.Model{
+			ID:1,
 		},
-		User{
+		CommonModel: CommonModel{
+			Status: true,
+			Priority: 1,
+
+		},
+		UserDto : UserDto{
+			Email: "mandib@gmail.com",
 			FirstName: "Dipak",
-			MiddleName: "",
-			LastName: "Shrestha",
+			LastName: "cgn",
 			Age: 22,
-			Email:"dipakshrestha@gmail.com",
-			Password: "dipak123",
 			Address: "Kathmandu",
+			Password: "password",
 		},
 	}
+	return []User{
+		user1,
+	}
 }
+
