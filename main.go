@@ -3,10 +3,10 @@ package main
 import (
 	// "encoding/json"
 	"net/http"
-	"github.com/mandibchaulagain/food-ecommerce-api-sec-a/responses"
+	// "github.com/mandibchaulagain/food-ecommerce-api-sec-a/responses"
 	"github.com/mandibchaulagain/food-ecommerce-api-sec-a/routes"
 
-	
+
 )
 
 func main(){
@@ -19,17 +19,17 @@ func main(){
 	}
 }
 
-func HandleInitialRoute(w http.ResponseWriter, r *http.Request){
-	print("Welcome to go api")
-	data := map[string]interface{}{
-		"user-list": [] string {"user1","user2","user3"},
-		"total-size":100,
-		"page":1,
-	}
-	responses.SuccessResponse(w,data,"Successfully connected")
-}
-func HandleErrorRoute(w http.ResponseWriter, r *http.Request){
-	print("welcome to error route")
+// func HandleInitialRoute(w http.ResponseWriter, r *http.Request){
+// 	print("Welcome to go api")
+// 	data := map[string]interface{}{
+// 		"user-list": [] string {"user1","user2","user3"},
+// 		"total-size":100,
+// 		"page":1,
+// 	}
+// 	responses.SuccessResponse(w,data,"Successfully connected")
+// }
+// func HandleErrorRoute(w http.ResponseWriter, r *http.Request){
+// 	print("welcome to error route")
 	
-	responses.ErrorResponse(w,http.StatusInternalServerError,"error seen")
-}
+// 	responses.ErrorResponse(w,http.StatusInternalServerError,"error seen")
+// }
